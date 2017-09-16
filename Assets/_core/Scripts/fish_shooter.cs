@@ -16,8 +16,9 @@ public class fist_shooter : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			GameObject projectile = Instantiate (prefab) as GameObject;
 			projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
-			Rigidbody rb = projectile.GetComponent<Rigidbody> ();
-			rb.velocity = Camera.main.transform.forward * 30;
+			Rigidbody rb = projectile.GetComponent<Rigidbody>();
+			rb.velocity = Camera.main.transform.forward * GlobalVariables.PLAYER_SPEED;
+			//rb.angularVelocity;
 		}
 	}
 }
