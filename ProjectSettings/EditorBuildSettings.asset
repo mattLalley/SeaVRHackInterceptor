@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/UnityARKitPlugin/Examples/UnityARKitScene/UnityARKitScene.unity
     guid: c159f2591a9b5c843b0a0442451f78f8
   - enabled: 0
@@ -29,3 +29,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/defaultScene.unity
     guid: 141205d60b91e4139affed1154509d4a
+  - enabled: 1
+    path: Assets/_core/Scenes/ARKitTestScene.unity
+    guid: c8c1e96a9d5a846319a2f8d7f0b23576
