@@ -44,6 +44,10 @@ public class CastlePlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_castlePlaced)
+        {
+            return;
+        }
         //use center of screen for focusing
         Vector3 center = new Vector3(Screen.width / 2, Screen.height / 2, _findingDist);
         var screenPosition = Camera.main.ScreenToViewportPoint(center);
@@ -64,7 +68,7 @@ public class CastlePlacement : MonoBehaviour
             if (HitTestWithResultType(point, resultType))
             {
                 CastleFocusState = FocusState.Found;
-                CheckForInput();
+                CheckForInput(point);
                 return;
             }
         }
@@ -119,20 +123,13 @@ public class CastlePlacement : MonoBehaviour
         return false;
     }
 
-    private void CheckForInput()
+    private void CheckForInput(ARPoint point)
     {
-        if (Input.touchCount > 0 && !_castlePlaced)
+        if (Input.touchCount > 0)
         {
             var touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                var screenPosition = Camera.main.ScreenToViewportPoint(touch.position);
-                ARPoint point = new ARPoint
-                {
-                    x = screenPosition.x,
-                    y = screenPosition.y
-                };
-
                 List<ARHitTestResult> hitResults = UnityARSessionNativeInterface.GetARSessionNativeInterface().HitTest(
                     point,
                     ARHitTestResultType.ARHitTestResultTypeExistingPlaneUsingExtent);
@@ -154,5 +151,6 @@ public class CastlePlacement : MonoBehaviour
     {
         Instantiate(_castlePrefab, atPosition, Quaternion.identity);
         _castlePlaced = true;
+        _castlePreview.SetActive(false);
     }
 }
