@@ -22,21 +22,24 @@ public class enemy_shooter : MonoBehaviour
 
 	void OnEnable()
 	{
-		if (/*PLAYER_TEAM*/true)
-		{
-			prefab = Resources.Load("fish_treat") as GameObject;
-		}
-		else
-		{
-			prefab = Resources.Load("bone_treat") as GameObject;
-		}
+        switch(GameManager.getPlayerTeam())
+        {
+            case Cats:
+            {
+                prefab = Resources.Load("fish_treat") as GameObject;
+            }
+            case Dogs:
+            {
+                prefab = Resources.Load("bone_treat") as GameObject;
+            }
+        }
 
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-        if(playerShooter == null)
+        if(_playerShooter == null || !isActive)
         {
             return;
         }
@@ -46,7 +49,7 @@ public class enemy_shooter : MonoBehaviour
 			GameObject projectile = Instantiate(prefab) as GameObject;
 			projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
 			Rigidbody rb = projectile.GetComponent<Rigidbody>();
-			rb.velocity = projectile.transform.Lookat(_player_shooter) * ENEMY_SPEED;
+			rb.velocity = projectile.transform.Lookat(_player_shooter) * GlobalVariables.ENEMY_SPEED;
 		}
 
 		if (Input.touchCount > 0)
@@ -57,7 +60,7 @@ public class enemy_shooter : MonoBehaviour
 				GameObject projectile = Instantiate(prefab);
 				projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
 				Rigidbody rb = projectile.GetComponent<Rigidbody>();
-				rb.velocity = projectile.transform.Lookat(_player_shooter) * ENEMY_SPEED;
+				rb.velocity = projectile.transform.Lookat(_player_shooter) * GlobalVariables.ENEMY_SPEED;
 			}
 		}
 	}
