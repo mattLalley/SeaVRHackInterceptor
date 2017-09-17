@@ -56,9 +56,20 @@ public class enemy_shooter : MonoBehaviour
 	void fireAtPlayer()
 	{
 		GameObject projectile = Instantiate(prefab) as GameObject;
-		projectile.transform.position = new Vector3(0, 0, 0); // adjust this to be in front of a cannon
-		Rigidbody rb = projectile.GetComponent<Rigidbody>();
+		//projectile.transform.position = new Vector3(0, 0, 0); // adjust this to be in front of a cannon
+
+		// Aim bullet in player's direction.
+
+		//Rigidbody rb = projectile.GetComponent<Rigidbody>();
 		Vector3 dir = (_player_shooter.transform.position - projectile.transform.position).normalized;
-		rb.velocity = dir * GlobalVariables.ENEMY_SPEED;
+		//var rot = projectile.transform.rotation;
+		//rot.z += 90;
+		dir =  Quaternion.Euler(0, -180, 0) * dir;
+
+		//projectile.transform.forward = dir;
+		projectile.transform.right = dir;
+
+		//projectile.transform.rotation = rot;
+		//rb.velocity = dir * GlobalVariables.ENEMY_SPEED;
 	}
 }

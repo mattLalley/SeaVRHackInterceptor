@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33545512808442808}
   - component: {fileID: 23561591972281226}
   - component: {fileID: 95418273060476484}
-  - component: {fileID: 54719844428462992}
   - component: {fileID: 135357635949696556}
+  - component: {fileID: 114347336586612520}
   m_Layer: 0
   m_Name: cat_projectile
   m_TagString: Untagged
@@ -37,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602432059271796}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.019564494, y: 0.037760228, z: -0.0002763748}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &23561591972281226
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -84,21 +84,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602432059271796}
   m_Mesh: {fileID: 4300000, guid: 5e9e7410eb2264e9ab698c90a3acd0f2, type: 3}
---- !u!54 &54719844428462992
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602432059271796}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &95418273060476484
 Animator:
   serializedVersion: 3
@@ -116,6 +101,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114347336586612520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602432059271796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb2d5afa260e4ccd91ec80c1da54d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135357635949696556
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -126,5 +122,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}

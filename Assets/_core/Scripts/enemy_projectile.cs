@@ -15,6 +15,10 @@ public class enemy_projectile : MonoBehaviour {
 	void Update () {
 		if (Time.fixedTime - time_of_birth > GlobalVariables.ENEMY_TIME_TO_LIVE) {
 			Destroy (this.gameObject);
+		} else {
+			//transform.position += (-transform.right.normalized) * GlobalVariables.ENEMY_SPEED;
+
+			transform.position += -Camera.main.transform.forward.normalized * GlobalVariables.ENEMY_SPEED;
 		}
 		
 	}
