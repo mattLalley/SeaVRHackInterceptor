@@ -3,7 +3,13 @@
 public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject _gameUI;
+    
     private bool _active;
+
+    private void Start()
+    {
+        GameManager.Instance.TreatEventOccurred += OnTreatEvent;
+    }
     
     public void Activate()
     {
@@ -15,5 +21,10 @@ public class UIController : MonoBehaviour
     {
         _active = false;
         _gameUI.SetActive(false);
+    }
+
+    private void OnTreatEvent()
+    {
+        
     }
 }

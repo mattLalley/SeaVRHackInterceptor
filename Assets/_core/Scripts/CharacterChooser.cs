@@ -36,7 +36,7 @@ public class CharacterChooser : MonoBehaviour
     public void ChooseDogs()
     {
         Debug.Log("Dogs choosen");
-        GameManager.Instance.PlayerTeam = AppManager.PlayerTeam.Cats;
+        GameManager.Instance.PlayerTeam = AppManager.PlayerTeam.Dogs;
         CharacterChoosen();
     }
     

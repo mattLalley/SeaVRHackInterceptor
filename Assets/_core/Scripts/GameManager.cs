@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private enemy_shooter _enemyShooter;
     [SerializeField] private CastleController _castleController;
     [SerializeField] private UIController _uiController;
+    [SerializeField] private AnalyticsController _analyticsController;
+    [SerializeField] private EndGameController _endGameController;
+
+    public event Action LickEventOccurred;
+    public event Action TreatEventOccurred;
 
     private static GameManager _instance;
     public static GameManager Instance
@@ -49,6 +54,7 @@ public class GameManager : MonoBehaviour
         _characterChooser.CharacterChooserComplete += OnCharacterChooserComplete;
         _tutorialController.TutorialComplete += OnTutorialComplete;
         _castlePlacementController.CastlePlacementComplete += OnCastlePlacementComplete;
+        _endGameController.EndGameComplete += EndGameComplete;
         _characterChooser.Activate();
     }
 
@@ -81,5 +87,21 @@ public class GameManager : MonoBehaviour
     public void CompleteGame()
     {
         _uiController.Deactivate();
+        _endGameController.Activate();
+    }
+
+    public void EndGameComplete()
+    {
+        _characterChooser.Activate();
+    }
+
+    public void SendLickAnalyticEvent()
+    {
+        _analyticsController.LickEventOccurred();
+    }
+
+    public void SendTreatAnalyticEvent()
+    {
+        _analyticsController.TreatEventOccurred();
     }
 }

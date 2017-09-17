@@ -21,6 +21,7 @@ public class CastleController : MonoBehaviour
             if (other.collider.name.Equals(DOG_TREAT) || other.collider.name.Equals(FISH_TREAT))
             {
                 _happiness++;
+                GameManager.Instance.SendTreatAnalyticEvent();
                 if (_happiness > HAPPINESS_THRESHOLD)
                 {
                     CompleteGame();

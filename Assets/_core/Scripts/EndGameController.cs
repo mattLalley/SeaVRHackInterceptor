@@ -14,6 +14,7 @@ public class EndGameController : MonoBehaviour
 
     public void Activate()
     {
+        _active = true;
         switch (GameManager.Instance.PlayerTeam)
         {
             case AppManager.PlayerTeam.Cats:
@@ -23,5 +24,10 @@ public class EndGameController : MonoBehaviour
                 _backgroundPanel.sprite = _dogSuccessImage;
                 break;
         }
+    }
+
+    public void RestartButtonPressed()
+    {
+        EndGameComplete();
     }
 }
