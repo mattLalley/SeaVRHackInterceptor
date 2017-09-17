@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CastlePlacementController _castlePlacementController;
     [SerializeField] private player_shooter _playerShooter;
     [SerializeField] private enemy_shooter _enemyShooter;
+    [SerializeField] private CastleController _castleController;
 
     private bool _petAttached;
     public bool PetAttached
@@ -38,5 +39,13 @@ public class GameManager : MonoBehaviour
     private void OnCastlePlacementComplete()
     {
         Debug.Log("CastlePlacementComplete");
+        ActivateGameObjects();
+    }
+
+    private void ActivateGameObjects()
+    {
+        _playerShooter.Activate();
+        _enemyShooter.Activate(_playerShooter);
+        _castleController.Activate();
     }
 }
