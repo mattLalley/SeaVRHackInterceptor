@@ -6,12 +6,22 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TutorialController _tutorialController;
     [SerializeField] private CastlePlacementController _castlePlacementController;
+    [SerializeField] private player_shooter _playerShooter;
+    [SerializeField] private enemy_shooter _enemyShooter;
+
+    private bool _petAttached;
+    public bool PetAttached
+    {
+        get { return _petAttached;}
+        set { _petAttached = value; }
+    }
 
     // Use this for initialization
     void Start()
     {
         _tutorialController.TutorialComplete += OnTutorialComplete;
         _castlePlacementController.CastlePlacementComplete += OnCastlePlacementComplete;
+        _tutorialController.Activate();
     }
 
     // Update is called once per frame

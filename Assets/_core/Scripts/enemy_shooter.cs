@@ -6,9 +6,16 @@ public class enemy_shooter : MonoBehaviour
 {
 	public GameObject prefab;
 
+	private player_shooter _player_shooter;
+
 	// Use this for initialization
 	void Start()
 	{
+	}
+
+	public void Activate(player_shooter playerShooter)
+	{
+		_player_shooter = playerShooter;
 	}
 
 	void OnEnable()
