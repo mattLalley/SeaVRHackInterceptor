@@ -11,9 +11,15 @@ public class CastleController : MonoBehaviour
 
     public void Start()
     {
-        _active = true;
+        GameManager.Instance.CastleActivateCallback += Activate;
     }
 
+    private void Activate()
+    {
+        _active = true;
+        gameObject.SetActive(true);
+    }
+    
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log("castleController collision: " + other.collider.name);
@@ -35,6 +41,8 @@ public class CastleController : MonoBehaviour
     private void CompleteGame()
     {
         _happiness = 0;
+        gameObject.SetActive(false);
+        _active = false;
         GameManager.Instance.CompleteGame();
     }
 }

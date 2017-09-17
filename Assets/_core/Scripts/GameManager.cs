@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         _tutorialController.TutorialComplete += OnTutorialComplete;
         _castlePlacementController.CastlePlacementComplete += OnCastlePlacementComplete;
         _endGameController.EndGameComplete += EndGameComplete;
+        CastleActivateCallback();
         _characterChooser.Activate();
     }
 
@@ -105,4 +106,7 @@ public class GameManager : MonoBehaviour
     {
         _analyticsController.TreatEventOccurred();
     }
+
+    public event Action CastleActivateCallback;
+    public event Action CastleDeactivateCallback;
 }
