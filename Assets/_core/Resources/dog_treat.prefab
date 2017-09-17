@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23616292613415100}
   - component: {fileID: 54153207603687432}
   - component: {fileID: 114934081892192946}
+  - component: {fileID: 135860444655901370}
   m_Layer: 0
   m_Name: dog_treat
   m_TagString: Untagged
@@ -108,3 +109,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7413ead5f23bd47038cb565149af68be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135860444655901370
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1474225370783640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}

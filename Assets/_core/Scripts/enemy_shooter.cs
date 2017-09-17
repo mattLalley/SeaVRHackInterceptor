@@ -26,11 +26,11 @@ public class enemy_shooter : MonoBehaviour
         {
             case Cats:
             {
-                prefab = Resources.Load("fish_treat") as GameObject;
+                prefab = Resources.Load("cat_projectile") as GameObject;
             }
             case Dogs:
             {
-                prefab = Resources.Load("bone_treat") as GameObject;
+                prefab = Resources.Load("dog_projectile") as GameObject;
             }
         }
 

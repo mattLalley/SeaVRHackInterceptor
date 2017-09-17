@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23561591972281226}
   - component: {fileID: 95418273060476484}
   - component: {fileID: 54719844428462992}
+  - component: {fileID: 135357635949696556}
   m_Layer: 0
   m_Name: cat_projectile
   m_TagString: Untagged
@@ -115,3 +116,15 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!135 &135357635949696556
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602432059271796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
