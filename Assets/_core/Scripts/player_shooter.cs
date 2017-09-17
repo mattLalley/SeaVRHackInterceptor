@@ -48,7 +48,6 @@ public class player_shooter : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Input 0");
             GameObject projectile = Instantiate(prefab) as GameObject;
             projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
