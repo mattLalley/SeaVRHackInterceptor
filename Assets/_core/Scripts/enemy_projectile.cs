@@ -13,7 +13,7 @@ public class enemy_projectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.fixedTime - time_of_birth > GlobalVariables.PLAYER_TIME_TO_LIVE) {
+		if (Time.fixedTime - time_of_birth > GlobalVariables.ENEMY_TIME_TO_LIVE) {
 			Destroy (this.gameObject);
 		}
 		

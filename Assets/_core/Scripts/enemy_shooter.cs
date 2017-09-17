@@ -58,6 +58,7 @@ public class enemy_shooter : MonoBehaviour
 		GameObject projectile = Instantiate(prefab) as GameObject;
 		projectile.transform.position = new Vector3(0, 0, 0); // adjust this to be in front of a cannon
 		Rigidbody rb = projectile.GetComponent<Rigidbody>();
-		rb.velocity = Camera.main.transform.forward * GlobalVariables.PLAYER_SPEED;
+		Vector3 dir = (_player_shooter.transform.position - projectile.transform.position).normalized;
+		rb.velocity = dir * GlobalVariables.ENEMY_SPEED;
 	}
 }
