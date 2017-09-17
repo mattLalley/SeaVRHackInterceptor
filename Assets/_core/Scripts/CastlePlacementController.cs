@@ -1,9 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.iOS;
 
-public class CastlePlacement : MonoBehaviour
+public class CastlePlacementController : MonoBehaviour
 {
+    [SerializeField] private GameObject _findingPlane;
+    [SerializeField] private GameObject _castlePreview;
+    [SerializeField] private GameObject _castlePrefab;
+    [SerializeField] private float _createHeight;
+    [SerializeField] private float _findingDist = 0.5f;
+
+    public event Action CastlePlacementComplete;
+    
     public enum FocusState
     {
         Initializing,
@@ -11,15 +20,7 @@ public class CastlePlacement : MonoBehaviour
         Found
     }
 
-    [SerializeField] private GameObject _findingPlane;
-    [SerializeField] private GameObject _castlePreview;
-    [SerializeField] private GameObject _castlePrefab;
-    [SerializeField] private float _createHeight;
-
-    [SerializeField] private float _findingDist = 0.5f;
-
     private FocusState _castleFocusState;
-
     public FocusState CastleFocusState
     {
         get { return _castleFocusState; }
@@ -35,7 +36,7 @@ public class CastlePlacement : MonoBehaviour
     private bool _castlePlaced;
 
     // Use this for initialization
-    void Start()
+    public void Activate()
     {
         CastleFocusState = FocusState.Initializing;
         _trackingInitialized = true;
@@ -152,5 +153,9 @@ public class CastlePlacement : MonoBehaviour
         Instantiate(_castlePrefab, atPosition, Quaternion.identity);
         _castlePlaced = true;
         _castlePreview.SetActive(false);
+        if (CastlePlacementComplete != null)
+        {
+            CastlePlacementComplete();
+        }
     }
 }
