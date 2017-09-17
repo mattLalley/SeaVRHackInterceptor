@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class player_shooter : MonoBehaviour
 {
-    public GameObject prefab;
+    [SerializeField] private GameObject _fishTreat;
+    [SerializeField] private GameObject _boneTreat;
+
+    private GameObject prefab;
 
 	private bool isActive;
 
@@ -16,33 +19,33 @@ public class player_shooter : MonoBehaviour
 	public void Activate()
 	{
 		isActive = true;
+        switch(GameManager.Instance.PlayerTeam)
+        {
+            case AppManager.PlayerTeam.Cats:
+                prefab = _fishTreat;
+                break;
+            case AppManager.PlayerTeam.Dogs:
+                prefab = _boneTreat;
+                break;
+        }
 	}
 	
-	void OnEnable()
-	{
-        switch(GameManager.getPlayerTeam())
-        {
-            case Cats:
-            {
-                prefab = Resources.Load("fish_treat") as GameObject;
-            }
-            case Dogs:
-            {
-                prefab = Resources.Load("bone_treat") as GameObject;
-            }
-        }
-
-	}
+//	void OnEnable()
+//	{
+//
+//	}
 
     // Update is called once per frame
     void Update()
     {
-        if(!isActive = true)
-        {
-            return;
-        }
+//        if(!isActive)
+//        {
+//            return;
+//        }
+        Debug.Log("PlayerShooter Update");
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Input 0");
             GameObject projectile = Instantiate(prefab) as GameObject;
             projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
