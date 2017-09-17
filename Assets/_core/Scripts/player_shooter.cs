@@ -50,7 +50,7 @@ public class player_shooter : MonoBehaviour
         {
             Instantiate(prefab);
         }
-
+#if !UNITY_IOS
         if (Input.touchCount > 0)
         {
             var touch = Input.GetTouch(0);
@@ -59,6 +59,7 @@ public class player_shooter : MonoBehaviour
                 Instantiate(prefab);
             }
         }
+#endif
     }
 
     public void Deactivate()

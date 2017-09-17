@@ -32,9 +32,15 @@ public class CastlePlacementController : MonoBehaviour
             _findingPlane.SetActive(_castleFocusState != FocusState.Found);
         }
     }
-
+    
     private bool _trackingInitialized;
     private bool _castlePlaced;
+
+    private void Start()
+    {
+        _catCastle.SetActive(false);
+        _dogCastle.SetActive(false);
+    }
 
     // Use this for initialization
     public void Activate()
@@ -42,6 +48,13 @@ public class CastlePlacementController : MonoBehaviour
         CastleFocusState = FocusState.Initializing;
         _trackingInitialized = true;
         CastlePlacementComplete();
+    }
+
+    public void Deactivate()
+    {
+        _catCastle.SetActive(false);
+        _dogCastle.SetActive(false);
+        _castlePlaced = false;
     }
 
     // Update is called once per frame
@@ -148,7 +161,6 @@ public class CastlePlacementController : MonoBehaviour
             }
         }
     }
-
 
     void CreateCastle(Vector3 atPosition)
     {
