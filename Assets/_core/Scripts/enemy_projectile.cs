@@ -18,12 +18,13 @@ public class enemy_projectile : MonoBehaviour {
 		} else {
 			//transform.position += (-transform.right.normalized) * GlobalVariables.ENEMY_SPEED;
 
-			transform.position += -Camera.main.transform.forward.normalized * GlobalVariables.ENEMY_SPEED;
+			transform.position += -Camera.main.transform.forward.normalized * GlobalVariables.ENEMY_SPEED; // seeks camera out does not rotated
+			transform.right = Camera.main.transform.forward;
 		}
 		
 	}
 	void OnCollisionEnter(Collision victim)
     {
-
+		Debug.Log (victim.gameObject.name);
     }
 }
