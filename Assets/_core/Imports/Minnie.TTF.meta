@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 05d27bc09ee31435f9a553daa7f5e413
+timeCreated: 1505661242
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Minnie
+  fontNames:
+  - Minnie
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

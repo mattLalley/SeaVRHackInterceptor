@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1604505456688906}
+  m_IsPrefabParent: 1
+--- !u!1 &1604505456688906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4212732057107196}
+  - component: {fileID: 33004292489745208}
+  - component: {fileID: 23415370707726396}
+  - component: {fileID: 95760626323005428}
+  m_Layer: 0
+  m_Name: DogFortress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4212732057107196
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604505456688906}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23415370707726396
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604505456688906}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 77b00742cbe0c422d9b5eb2faa32fb64, type: 2}
+  - {fileID: 2100000, guid: 4e354ee8eaa3148c8b4c795d526cd55f, type: 2}
+  - {fileID: 2100000, guid: 20e7b5e50b894402e9bf6879ddd11166, type: 2}
+  - {fileID: 2100000, guid: 32f6a4d3e72e143ed8c1748aaa504de1, type: 2}
+  - {fileID: 2100000, guid: 7c1573e96497140a4b590f2aeec38bf5, type: 2}
+  - {fileID: 2100000, guid: ad9c0517d17ec430ab8f4783aed66ead, type: 2}
+  - {fileID: 2100000, guid: bd877ea4deadf4e70abddb136a57e838, type: 2}
+  - {fileID: 2100000, guid: 4a447d870f51a430191514688df735c3, type: 2}
+  - {fileID: 2100000, guid: 42cbb04ddfcc743de95de1c791c0b9c4, type: 2}
+  - {fileID: 2100000, guid: 73661745984bc402fb6d0d209fcc0ee0, type: 2}
+  - {fileID: 2100000, guid: 275696e310f0d455186c7d300965bd4d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33004292489745208
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604505456688906}
+  m_Mesh: {fileID: 4300000, guid: 541816bfffe2546939e8025125457187, type: 3}
+--- !u!95 &95760626323005428
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604505456688906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 541816bfffe2546939e8025125457187, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

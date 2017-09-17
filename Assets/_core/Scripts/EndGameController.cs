@@ -7,6 +7,8 @@ public class EndGameController : MonoBehaviour
     [SerializeField] private Image _backgroundPanel;
     [SerializeField] private Sprite _dogSuccessImage;
     [SerializeField] private Sprite _catSuccessImage;
+    [SerializeField] private Text _treatsNumber;
+    [SerializeField] private Text _licksNumber;
 
     private bool _active;
 

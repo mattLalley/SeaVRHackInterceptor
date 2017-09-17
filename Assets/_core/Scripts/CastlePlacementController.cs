@@ -6,13 +6,13 @@ using UnityEngine.XR.iOS;
 public class CastlePlacementController : MonoBehaviour
 {
     [SerializeField] private GameObject _findingPlane;
-    [SerializeField] private GameObject _castlePreview;
-    [SerializeField] private GameObject _castlePrefab;
+    [SerializeField] private GameObject _catCastle;
+    [SerializeField] private GameObject _dogCastle;
     [SerializeField] private float _createHeight;
     [SerializeField] private float _findingDist = 0.5f;
 
     public event Action CastlePlacementComplete;
-    
+
     public enum FocusState
     {
         Initializing,
@@ -21,13 +21,14 @@ public class CastlePlacementController : MonoBehaviour
     }
 
     private FocusState _castleFocusState;
+
     public FocusState CastleFocusState
     {
         get { return _castleFocusState; }
         set
         {
             _castleFocusState = value;
-            _castlePreview.SetActive(_castleFocusState == FocusState.Found);
+//            _castlePreview.SetActive(_castleFocusState == FocusState.Found);
             _findingPlane.SetActive(_castleFocusState != FocusState.Found);
         }
     }
@@ -114,11 +115,11 @@ public class CastlePlacementController : MonoBehaviour
         {
             foreach (var hitResult in hitResults)
             {
-                _castlePreview.transform.position = UnityARMatrixOps.GetPosition(hitResult.worldTransform);
-                _castlePreview.transform.rotation = UnityARMatrixOps.GetRotation(hitResult.worldTransform);
-                Debug.Log(string.Format("x:{0:0.######} y:{1:0.######} z:{2:0.######}",
-                    _castlePreview.transform.position.x, _castlePreview.transform.position.y,
-                    _castlePreview.transform.position.z));
+//                _castlePreview.transform.position = UnityARMatrixOps.GetPosition(hitResult.worldTransform);
+//                _castlePreview.transform.rotation = UnityARMatrixOps.GetRotation(hitResult.worldTransform);
+//                Debug.Log(string.Format("x:{0:0.######} y:{1:0.######} z:{2:0.######}",
+//                    _castlePreview.transform.position.x, _castlePreview.transform.position.y,
+//                    _castlePreview.transform.position.z));
                 return true;
             }
         }
@@ -151,13 +152,24 @@ public class CastlePlacementController : MonoBehaviour
 
     void CreateCastle(Vector3 atPosition)
     {
-        Instantiate(_castlePrefab, atPosition, Quaternion.identity);
+        switch (GameManager.Instance.PlayerTeam)
+        {
+            case AppManager.PlayerTeam.Cats:
+                _catCastle.transform.position = atPosition;
+                _catCastle.transform.rotation = Quaternion.identity;
+                _catCastle.SetActive(true);
+                break;
+            case AppManager.PlayerTeam.Dogs:
+                _dogCastle.transform.position = atPosition;
+                _dogCastle.transform.rotation = Quaternion.identity;
+                _dogCastle.SetActive(true);
+                break;
+        }
         _castlePlaced = true;
-        _castlePreview.SetActive(false);
+//        _castlePreview.SetActive(false);
         if (CastlePlacementComplete != null)
         {
             CastlePlacementComplete();
-
         }
     }
 }

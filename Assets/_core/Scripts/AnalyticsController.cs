@@ -2,6 +2,12 @@
 
 public class AnalyticsController : MonoBehaviour
 {
+    private static AnalyticsController _instance;
+    public static AnalyticsController Instance
+    {
+        get { return _instance; }
+    }
+
     private int _numberOfLicks;
     public int NumberOfLicks
     {
@@ -14,6 +20,18 @@ public class AnalyticsController : MonoBehaviour
     {
         get { return _numberOfTreats; }
         set { _numberOfTreats = value; }
+    }
+    
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
     }
 
     private void Start()

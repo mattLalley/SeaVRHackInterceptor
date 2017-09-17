@@ -6,6 +6,8 @@ public class enemy_shooter : MonoBehaviour
 {
     [SerializeField] private GameObject _catProjectile;
     [SerializeField] private GameObject _dogProjectile;
+	[SerializeField] private List<GameObject> _dogCannons;
+	[SerializeField] private List<GameObject> _catCannons;
     
     private GameObject prefab;
 
