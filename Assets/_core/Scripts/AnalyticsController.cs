@@ -48,6 +48,7 @@ public class AnalyticsController : MonoBehaviour
     public void TreatEventOccurred()
     {
         _numberOfTreats++;
+        Debug.Log("More treats: " + _numberOfTreats);
     }
 
     public void ResetAnalyticData()

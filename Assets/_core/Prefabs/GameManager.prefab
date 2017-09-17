@@ -61,22 +61,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1417243108758328
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4011114062580034}
-  - component: {fileID: 114501759066012504}
-  m_Layer: 0
-  m_Name: CastleController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1462083638531852
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +104,8 @@ GameObject:
   - component: {fileID: 33192605246583784}
   - component: {fileID: 23769656434059982}
   - component: {fileID: 95288197617460950}
+  - component: {fileID: 135661235291720708}
+  - component: {fileID: 114027642354524788}
   m_Layer: 0
   m_Name: CatPalace
   m_TagString: Untagged
@@ -273,19 +259,6 @@ Transform:
   m_Father: {fileID: 4964301940516574}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4011114062580034
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417243108758328}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.046525836, y: 0.7151386, z: 0.017414212}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4964301940516574}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4027721388814056
 Transform:
   m_ObjectHideFlags: 1
@@ -352,7 +325,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4964301940516574}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4579356220596586
 Transform:
@@ -406,7 +379,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4964301940516574}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4688659424784592
 Transform:
@@ -432,7 +405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4964301940516574}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4964301940516574
 Transform:
@@ -441,14 +414,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940165435573888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.622936, y: 1.1668096, z: -1.7750643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4688659424784592}
   - {fileID: 4579356220596586}
   - {fileID: 4517113725999664}
   - {fileID: 4006787690077446}
-  - {fileID: 4011114062580034}
   - {fileID: 4629479785859450}
   - {fileID: 4961210232881048}
   - {fileID: 4547100376772942}
@@ -786,6 +758,17 @@ MonoBehaviour:
   _aimTowardsScreen: {fileID: 0}
   _throwATreat: {fileID: 0}
   _makeYourPetsHappy: {fileID: 0}
+--- !u!114 &114027642354524788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482771872555794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c5d6cb11cc4b028ad9c54e6deab35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114289979177742024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -818,17 +801,6 @@ MonoBehaviour:
   _treatsNumber: {fileID: 0}
   _licksNumber: {fileID: 0}
   _endGameUI: {fileID: 0}
---- !u!114 &114501759066012504
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417243108758328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c5d6cb11cc4b028ad9c54e6deab35e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114537091145995806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -880,7 +852,7 @@ MonoBehaviour:
   _castlePlacementController: {fileID: 114537091145995806}
   _playerShooter: {fileID: 0}
   _enemyShooter: {fileID: 114664072989612346}
-  _castleController: {fileID: 114501759066012504}
+  _castleController: {fileID: 0}
   _uiController: {fileID: 114766686246724498}
   _analyticsController: {fileID: 114821050771041324}
   _endGameController: {fileID: 114306677049851052}
@@ -908,3 +880,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11b4cb46e164b4b88b77657cb4f7246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135661235291720708
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482771872555794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.17906095
+  m_Center: {x: 0.011631459, y: 0.17878465, z: 0.004353557}

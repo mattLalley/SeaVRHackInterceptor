@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CastlePlacementController _castlePlacementController;
     [SerializeField] private player_shooter _playerShooter;
     [SerializeField] private enemy_shooter _enemyShooter;
-    [SerializeField] private CastleController _castleController;
     [SerializeField] private UIController _uiController;
     [SerializeField] private AnalyticsController _analyticsController;
     [SerializeField] private EndGameController _endGameController;
@@ -80,7 +79,6 @@ public class GameManager : MonoBehaviour
     {
         _playerShooter.Activate();
         _enemyShooter.Activate(_playerShooter);
-        _castleController.Activate();
         _uiController.Activate();
     }
 
