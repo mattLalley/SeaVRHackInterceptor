@@ -71,4 +71,9 @@ public class GameManager : MonoBehaviour
         _enemyShooter.Activate(_playerShooter);
         _castleController.Activate();
     }
+
+    public void CompleteGame()
+    {
+        
+    }
 }
