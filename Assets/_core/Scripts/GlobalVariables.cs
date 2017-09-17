@@ -5,6 +5,7 @@ using UnityEngine;
 public static class GlobalVariables
 {
 	public static float ENEMY_SPEED = 4f;
+	public static float ENEMY_RATE = 4f;
 	public static float ENEMY_MAX_TURN_RATE = 15f;
 	public static float PLAYER_SPEED = 30f;
 	public static float PLAYER_FIRERATE = 1f;

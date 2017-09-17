@@ -157,6 +157,7 @@ public class CastlePlacementController : MonoBehaviour
         if (CastlePlacementComplete != null)
         {
             CastlePlacementComplete();
+
         }
     }
 }

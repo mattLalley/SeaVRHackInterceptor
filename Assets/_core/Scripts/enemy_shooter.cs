@@ -12,6 +12,8 @@ public class enemy_shooter : MonoBehaviour
     private player_shooter _player_shooter;
     private bool isActive;
 
+	private float time_of_last_shot;
+
     // Use this for initialization
     void Start()
     {
@@ -43,27 +45,19 @@ public class enemy_shooter : MonoBehaviour
         {
             return;
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject projectile = Instantiate(prefab) as GameObject;
-            projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
-            Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            Vector3 dir = (_player_shooter.transform.position - this.transform.position).normalized;
-            rb.velocity = dir * GlobalVariables.ENEMY_SPEED;
-        }
-
-        if (Input.touchCount > 0)
-        {
-            var touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                GameObject projectile = Instantiate(prefab);
-                projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
-                Rigidbody rb = projectile.GetComponent<Rigidbody>();
-                Vector3 dir = (_player_shooter.transform.position - this.transform.position).normalized;
-                rb.velocity = dir * GlobalVariables.ENEMY_SPEED;
-            }
-        }
+			
+		float now = Time.fixedTime;
+		if (time_of_last_shot == null || now - time_of_last_shot > GlobalVariables.ENEMY_RATE) {
+			time_of_last_shot = now;
+			fireAtPlayer();
+		}
+			
     }
+	void fireAtPlayer()
+	{
+		GameObject projectile = Instantiate(prefab) as GameObject;
+		projectile.transform.position = new Vector3(0, 0, 0); // adjust this to be in front of a cannon
+		Rigidbody rb = projectile.GetComponent<Rigidbody>();
+		rb.velocity = Camera.main.transform.forward * GlobalVariables.PLAYER_SPEED;
+	}
 }

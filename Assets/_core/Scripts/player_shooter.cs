@@ -28,6 +28,9 @@ public class player_shooter : MonoBehaviour
             case AppManager.PlayerTeam.Dogs:
                 prefab = _boneTreat;
                 break;
+		    default:
+				prefab = _boneTreat;
+				break;
         }
 	}
 	
@@ -39,10 +42,10 @@ public class player_shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-//        if(!isActive)
-//        {
-//            return;
-//        }
+        if(!isActive)
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Input 0");
