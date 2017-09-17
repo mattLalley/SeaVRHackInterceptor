@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class TutorialController : MonoBehaviour
 {
-    [SerializeField] private Image _tutorialImagePanel;
-    [SerializeField] private List<Sprite> _tutorialImages = new List<Sprite>();
+    private enum TutorialState
+    {
+        Start,
+        AimTowardsScreen,
+        ThrowATreat,
+        MakeYourPetsHappy
+    }
+
+    [SerializeField] private Image _backgroundPanel;
+    [SerializeField] private Sprite _background;
+    [SerializeField] private Image _aimTowardsScreen;
+    [SerializeField] private Image _throwATreat;
+    [SerializeField] private Image _makeYourPetsHappy;
+
     public event Action TutorialComplete;
 
-    private int _tutorialImageIndex;
+    private TutorialState _tutorialState;
     private bool _active;
 
     private void Start()
@@ -19,9 +31,9 @@ public class TutorialController : MonoBehaviour
 
     public void Activate()
     {
-        _tutorialImagePanel.sprite = _tutorialImages[0];
-        _tutorialImageIndex++;
-        _tutorialImagePanel.enabled = true;
+        _backgroundPanel.sprite = _background;
+        _tutorialState = TutorialState.Start;
+        _backgroundPanel.enabled = true;
         _active = true;
     }
 
@@ -31,16 +43,34 @@ public class TutorialController : MonoBehaviour
         {
             return;
         }
-        _tutorialImagePanel.sprite = _tutorialImages[_tutorialImageIndex];
-        _tutorialImageIndex++;
-        if (_tutorialImageIndex == _tutorialImages.Count)
+
+        switch (_tutorialState)
         {
-            if (TutorialComplete != null)
-            {
-                _tutorialImagePanel.enabled = false;
-                _active = false;
-                TutorialComplete();
-            }
+            case TutorialState.Start:
+                _aimTowardsScreen.enabled = true;
+                break;
+            case TutorialState.AimTowardsScreen:
+                _throwATreat.enabled = true;
+                break;
+            case TutorialState.ThrowATreat:
+                _makeYourPetsHappy.enabled = true;
+                break;
+            case TutorialState.MakeYourPetsHappy:
+                FinishTutorial();
+                break;
+        }
+    }
+
+    private void FinishTutorial()
+    {
+        _aimTowardsScreen.enabled = false;
+        _throwATreat.enabled = false;
+        _makeYourPetsHappy.enabled = false;
+        if (TutorialComplete != null)
+        {
+            _backgroundPanel.enabled = false;
+            _active = false;
+            TutorialComplete();
         }
     }
 }

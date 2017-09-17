@@ -7,6 +7,8 @@ public class CharacterChooser : MonoBehaviour
     
     [SerializeField] private GameObject _dogButton;
     [SerializeField] private GameObject _catButton;
+    [SerializeField] private Image _backgroundPanel;
+    [SerializeField] private Sprite _backgroundImage;
     public event Action CharacterChooserComplete;
 
     private bool _active;
@@ -18,6 +20,7 @@ public class CharacterChooser : MonoBehaviour
 
     public void Activate()
     {
+//        _backgroundPanel.sprite = 
         _dogButton.SetActive(true);
         _catButton.SetActive(true);
         _active = true;

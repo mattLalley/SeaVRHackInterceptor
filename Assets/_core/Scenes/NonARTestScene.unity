@@ -157,11 +157,26 @@ Prefab:
       propertyPath: _catButton
       value: 
       objectReference: {fileID: 1009511786}
-    - target: {fileID: 114026082103356366, guid: 830a763ecf23742c093d31444cc2216a,
+    - target: {fileID: 114289979177742024, guid: 830a763ecf23742c093d31444cc2216a,
         type: 2}
-      propertyPath: _tutorialImagePanel
+      propertyPath: _backgroundPanel
       value: 
       objectReference: {fileID: 1100951108}
+    - target: {fileID: 114026082103356366, guid: 830a763ecf23742c093d31444cc2216a,
+        type: 2}
+      propertyPath: _aimTowardsScreen
+      value: 
+      objectReference: {fileID: 100739551}
+    - target: {fileID: 114026082103356366, guid: 830a763ecf23742c093d31444cc2216a,
+        type: 2}
+      propertyPath: _throwATreat
+      value: 
+      objectReference: {fileID: 1576921060}
+    - target: {fileID: 114026082103356366, guid: 830a763ecf23742c093d31444cc2216a,
+        type: 2}
+      propertyPath: _makeYourPetsHappy
+      value: 
+      objectReference: {fileID: 1576921059}
     - target: {fileID: 114749679119280662, guid: 830a763ecf23742c093d31444cc2216a,
         type: 2}
       propertyPath: _playerShooter
@@ -170,6 +185,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 830a763ecf23742c093d31444cc2216a, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &100739551 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114581631751237876, guid: 7529758b9724c4a19a979fd84d4cf660,
+    type: 2}
+  m_PrefabInternal: {fileID: 1576921058}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &796549895 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114026082103356366, guid: 830a763ecf23742c093d31444cc2216a,
@@ -459,15 +480,21 @@ Prefab:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 114125169435328038, guid: 7529758b9724c4a19a979fd84d4cf660,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d35e000e4b46e4342b89889be5cd2dab,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7529758b9724c4a19a979fd84d4cf660, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1576921059 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114051541203497812, guid: 7529758b9724c4a19a979fd84d4cf660,
+    type: 2}
+  m_PrefabInternal: {fileID: 1576921058}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1576921060 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114414021905994786, guid: 7529758b9724c4a19a979fd84d4cf660,
+    type: 2}
+  m_PrefabInternal: {fileID: 1576921058}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1694798460
 GameObject:
   m_ObjectHideFlags: 0
