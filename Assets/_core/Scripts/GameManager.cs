@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +8,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private enemy_shooter _enemyShooter;
     [SerializeField] private CastleController _castleController;
 
+    private static GameManager _instance;
+    public static GameManager Instance
+    {
+        get { return _instance; }
+    }
+
     private bool _petAttached;
     public bool PetAttached
     {
@@ -17,8 +21,27 @@ public class GameManager : MonoBehaviour
         set { _petAttached = value; }
     }
 
+    private AppManager.PlayerTeam _playerTeam;
+    public AppManager.PlayerTeam PlayerTeam
+    {
+        get { return _playerTeam; }
+        set { _playerTeam = value; }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         _tutorialController.TutorialComplete += OnTutorialComplete;
         _castlePlacementController.CastlePlacementComplete += OnCastlePlacementComplete;
@@ -26,7 +49,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
     }
 

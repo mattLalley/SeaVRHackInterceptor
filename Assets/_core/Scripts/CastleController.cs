@@ -8,4 +8,9 @@ public class CastleController : MonoBehaviour
     {
         isActive = true;
     }
+
+    private void CompleteGame()
+    {
+        
+    }
 }
