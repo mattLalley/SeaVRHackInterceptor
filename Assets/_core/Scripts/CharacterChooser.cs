@@ -20,7 +20,7 @@ public class CharacterChooser : MonoBehaviour
 
     public void Activate()
     {
-//        _backgroundPanel.sprite = 
+        _backgroundPanel.sprite = _backgroundImage;
         _dogButton.SetActive(true);
         _catButton.SetActive(true);
         _active = true;

@@ -7,17 +7,17 @@ public class TutorialController : MonoBehaviour
 {
     private enum TutorialState
     {
-        Start,
         AimTowardsScreen,
         ThrowATreat,
-        MakeYourPetsHappy
+        MakeYourPetsHappy,
+        Complete
     }
 
     [SerializeField] private Image _backgroundPanel;
-    [SerializeField] private Sprite _background;
-    [SerializeField] private Image _aimTowardsScreen;
-    [SerializeField] private Image _throwATreat;
-    [SerializeField] private Image _makeYourPetsHappy;
+    [SerializeField] private Sprite _backgroundImage;
+    [SerializeField] private GameObject _aimTowardsScreen;
+    [SerializeField] private GameObject _throwATreat;
+    [SerializeField] private GameObject _makeYourPetsHappy;
 
     public event Action TutorialComplete;
 
@@ -31,14 +31,15 @@ public class TutorialController : MonoBehaviour
 
     public void Activate()
     {
-        _backgroundPanel.sprite = _background;
-        _tutorialState = TutorialState.Start;
+        _backgroundPanel.sprite = _backgroundImage;
+        _tutorialState = TutorialState.AimTowardsScreen;
         _backgroundPanel.enabled = true;
         _active = true;
     }
 
     public void ProgressToNextPane()
     {
+        Debug.Log("ProgressToNextPane: " + _tutorialState);
         if (!_active)
         {
             return;
@@ -46,16 +47,19 @@ public class TutorialController : MonoBehaviour
 
         switch (_tutorialState)
         {
-            case TutorialState.Start:
-                _aimTowardsScreen.enabled = true;
-                break;
             case TutorialState.AimTowardsScreen:
-                _throwATreat.enabled = true;
+                _aimTowardsScreen.SetActive(true);
+                _tutorialState = TutorialState.ThrowATreat;
                 break;
             case TutorialState.ThrowATreat:
-                _makeYourPetsHappy.enabled = true;
+                _tutorialState = TutorialState.MakeYourPetsHappy;
+                _throwATreat.SetActive(true);
                 break;
             case TutorialState.MakeYourPetsHappy:
+                _tutorialState = TutorialState.Complete;
+                _makeYourPetsHappy.SetActive(true);
+                break;
+            case TutorialState.Complete:
                 FinishTutorial();
                 break;
         }
@@ -63,9 +67,9 @@ public class TutorialController : MonoBehaviour
 
     private void FinishTutorial()
     {
-        _aimTowardsScreen.enabled = false;
-        _throwATreat.enabled = false;
-        _makeYourPetsHappy.enabled = false;
+        _aimTowardsScreen.SetActive(false);
+        _throwATreat.SetActive(false);
+        _makeYourPetsHappy.SetActive(false);
         if (TutorialComplete != null)
         {
             _backgroundPanel.enabled = false;
