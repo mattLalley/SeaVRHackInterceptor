@@ -84,12 +84,15 @@ public class GameManager : MonoBehaviour
 
     public void CompleteGame()
     {
+        _playerShooter.Deactivate();
+        _enemyShooter.Deactivate();
         _uiController.Deactivate();
         _endGameController.Activate();
     }
 
     public void EndGameComplete()
     {
+        AnalyticsController.Instance.ResetAnalyticData();
         _characterChooser.Activate();
     }
 

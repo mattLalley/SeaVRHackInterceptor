@@ -60,4 +60,9 @@ public class player_shooter : MonoBehaviour
             }
         }
     }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
 }

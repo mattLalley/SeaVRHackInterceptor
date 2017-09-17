@@ -106,4 +106,9 @@ public class enemy_shooter : MonoBehaviour
         Vector3 playerPosition = _player_shooter.transform.position;
         return Vector3.Distance(playerPosition, position);
     }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
 }

@@ -18,6 +18,7 @@ public class EndGameController : MonoBehaviour
     public void Activate()
     {
         _active = true;
+        _backgroundPanel.enabled = true;
         _endGameUI.SetActive(true);
         switch (GameManager.Instance.PlayerTeam)
         {

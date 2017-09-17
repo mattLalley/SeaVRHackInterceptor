@@ -166,7 +166,6 @@ public class CastlePlacementController : MonoBehaviour
                 break;
         }
         _castlePlaced = true;
-//        _castlePreview.SetActive(false);
         if (CastlePlacementComplete != null)
         {
             CastlePlacementComplete();

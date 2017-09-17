@@ -34,6 +34,7 @@ public class CastleController : MonoBehaviour
 
     private void CompleteGame()
     {
+        _happiness = 0;
         GameManager.Instance.CompleteGame();
     }
 }
