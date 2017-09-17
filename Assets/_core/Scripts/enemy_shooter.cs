@@ -49,7 +49,8 @@ public class enemy_shooter : MonoBehaviour
 			GameObject projectile = Instantiate(prefab) as GameObject;
 			projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
 			Rigidbody rb = projectile.GetComponent<Rigidbody>();
-			rb.velocity = projectile.transform.Lookat(_player_shooter) * GlobalVariables.ENEMY_SPEED;
+			Vector3 dir = (_player_shooter.transform.position - this.transform.position).normalized
+			rb.velocity = dir * GlobalVariables.ENEMY_SPEED;
 		}
 
 		if (Input.touchCount > 0)
@@ -60,7 +61,8 @@ public class enemy_shooter : MonoBehaviour
 				GameObject projectile = Instantiate(prefab);
 				projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
 				Rigidbody rb = projectile.GetComponent<Rigidbody>();
-				rb.velocity = projectile.transform.Lookat(_player_shooter) * GlobalVariables.ENEMY_SPEED;
+				Vector3 dir = (_player_shooter.transform.position - this.transform.position).normalized
+				rb.velocity = dir * GlobalVariables.ENEMY_SPEED;
 			}
 		}
 	}
