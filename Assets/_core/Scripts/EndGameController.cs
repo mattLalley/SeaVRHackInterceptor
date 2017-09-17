@@ -9,6 +9,7 @@ public class EndGameController : MonoBehaviour
     [SerializeField] private Sprite _catSuccessImage;
     [SerializeField] private Text _treatsNumber;
     [SerializeField] private Text _licksNumber;
+    [SerializeField] private GameObject _endGameUI;
 
     private bool _active;
 
@@ -17,6 +18,7 @@ public class EndGameController : MonoBehaviour
     public void Activate()
     {
         _active = true;
+        _endGameUI.SetActive(true);
         switch (GameManager.Instance.PlayerTeam)
         {
             case AppManager.PlayerTeam.Cats:
@@ -26,10 +28,27 @@ public class EndGameController : MonoBehaviour
                 _backgroundPanel.sprite = _dogSuccessImage;
                 break;
         }
+        
+        SetNumberOfLicks();
+        SetNumberOfTreats();
+    }
+
+    private void SetNumberOfLicks()
+    {
+        int numberOfLicks = AnalyticsController.Instance.NumberOfLicks;
+        _licksNumber.text = String.Format("{0}", numberOfLicks);
+    }
+
+    private void SetNumberOfTreats()
+    {
+        int numberOfTreats = AnalyticsController.Instance.NumberOfTreats;
+        _treatsNumber.text = String.Format("{0}", numberOfTreats);
     }
 
     public void RestartButtonPressed()
     {
+        _active = false;
+        _endGameUI.SetActive(false);
         EndGameComplete();
     }
 }
