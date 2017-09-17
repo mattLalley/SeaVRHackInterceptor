@@ -18,6 +18,7 @@ public class player_shooter : MonoBehaviour
 
 	public void Activate()
 	{
+	    Debug.Log("Activate play shooter");
 		isActive = true;
         switch(GameManager.Instance.PlayerTeam)
         {
@@ -42,7 +43,6 @@ public class player_shooter : MonoBehaviour
 //        {
 //            return;
 //        }
-        Debug.Log("PlayerShooter Update");
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Input 0");

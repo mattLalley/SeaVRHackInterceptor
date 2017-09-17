@@ -40,6 +40,7 @@ public class CastlePlacementController : MonoBehaviour
     {
         CastleFocusState = FocusState.Initializing;
         _trackingInitialized = true;
+        CastlePlacementComplete();
     }
 
     // Update is called once per frame
