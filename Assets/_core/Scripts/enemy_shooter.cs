@@ -34,12 +34,17 @@ public class enemy_shooter : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+        if(playerShooter == null)
+        {
+            return;
+        }
+	
 		if (Input.GetMouseButtonDown(0))
 		{
 			GameObject projectile = Instantiate(prefab) as GameObject;
 			projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
 			Rigidbody rb = projectile.GetComponent<Rigidbody>();
-			rb.velocity = Camera.main.transform.forward * 30;
+			rb.velocity = projectile.transform.Lookat(_player_shooter) * ENEMY_SPEED;
 		}
 
 		if (Input.touchCount > 0)
@@ -50,7 +55,7 @@ public class enemy_shooter : MonoBehaviour
 				GameObject projectile = Instantiate(prefab);
 				projectile.transform.position = transform.position + Camera.main.transform.forward * 2;
 				Rigidbody rb = projectile.GetComponent<Rigidbody>();
-				rb.velocity = Camera.main.transform.forward * 30;
+				rb.velocity = projectile.transform.Lookat(_player_shooter) * ENEMY_SPEED;
 			}
 		}
 	}
