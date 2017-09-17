@@ -6,11 +6,18 @@ public class player_shooter : MonoBehaviour
 {
     public GameObject prefab;
 
+	private bool isActive;
+
     // Use this for initialization
     void Start()
     {
     }
 
+	public void Activate()
+	{
+		isActive = true;
+	}
+	
 	void OnEnable()
 	{
 		if (PLAYER_TEAM)
