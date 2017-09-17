@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destroy_fishes : MonoBehaviour {
+public class player_projectile : MonoBehaviour {
 
 	private float time_of_birth = 0f;
 
