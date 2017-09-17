@@ -33,7 +33,7 @@ public class CastlePlacementController : MonoBehaviour
     }
 
     private bool _trackingInitialized;
-    private bool _castlePlaced;
+    private bool _castlePlaced = true;
 
     // Use this for initialization
     public void Activate()

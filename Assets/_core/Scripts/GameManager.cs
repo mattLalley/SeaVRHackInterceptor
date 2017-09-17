@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private CharacterChooser _characterChooser;
     [SerializeField] private TutorialController _tutorialController;
     [SerializeField] private CastlePlacementController _castlePlacementController;
     [SerializeField] private player_shooter _playerShooter;
@@ -43,14 +45,16 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        _characterChooser.CharacterChooserComplete += OnCharacterChooserComplete;
         _tutorialController.TutorialComplete += OnTutorialComplete;
         _castlePlacementController.CastlePlacementComplete += OnCastlePlacementComplete;
-        _tutorialController.Activate();
+        _characterChooser.Activate();
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void OnCharacterChooserComplete()
     {
+        Debug.Log("CharacterChooserComplete");
+        _tutorialController.Activate();
     }
 
     private void OnTutorialComplete()
